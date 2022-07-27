@@ -1,7 +1,7 @@
 import './App.css';
 import SearchForm from './components/SearchForm';
 import Navigation from './components/Navigation';
-import Photos from './components/Photos';
+import PhotoList from './components/PhotoList';
 import NotFound from './components/NotFound';
 
 function App() {
@@ -9,10 +9,11 @@ function App() {
     <div>
       <SearchForm />
       <Navigation />
-      <Photos />
+      <PhotoList />
       <NotFound />
     </div>
   );
 }
 
 export default App;
+
