@@ -1,11 +1,11 @@
 import React from 'react';
-import GetPhotos from './GetPhotos';
+import Photo from './Photo';
 
 const PhotoList = () => (
     <div class="photo-container">
         <h2>Results</h2>
     <ul>
-        <GetPhotos />
+        <Photo />
     </ul>
     </div>
 )
