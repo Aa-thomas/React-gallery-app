@@ -1,13 +1,34 @@
 import React from 'react';
+import NotFound from './NotFound';
 import Photo from './Photo';
 
-const PhotoList = () => (
-    <div class="photo-container">
+const PhotoList = ({data}) => {
+    
+    const results = data; 
+    let photos
+    
+    if (results.length > 0) {
+        photos = results.map( photo => 
+            <Photo 
+                url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
+                key={photo.id}
+            />
+    )} else {
+        photos = <NotFound />
+    }
+    
+    
+    
+    
+    
+    return(
+        <div className="photo-container">
         <h2>Results</h2>
-    <ul>
-        <Photo />
-    </ul>
-    </div>
-)
+            <ul>
+                {photos}
+            </ul>
+        </div>
+    )
+}
 
 export default PhotoList;
