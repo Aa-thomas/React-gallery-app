@@ -56,6 +56,7 @@ body {
     border-radius: 3px;
     padding: 5px;
     color: #fff;
+    min-height: 25px;
   }
   
   .main-nav .active,

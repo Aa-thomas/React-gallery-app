@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Error404 from './components/Error404';
 import SearchForm from './components/SearchForm';
 import Navigation from './components/Navigation';
 import PhotoList from './components/PhotoList';
@@ -54,31 +55,40 @@ class App extends React.Component {
   }
 
   render() {
+    
     console.log(this.state.photos)
     return (
+      
       <div>
+      <BrowserRouter>
         <h1>React Gallery</h1>
 
         <SearchForm onSearch={this.performSearch} />
         
-        <Navigation />
         
-        <BrowserRouter>        
+        
+        
+        <Navigation />        
+
             <Routes>                
                 <Route exact path="/" element={<PhotoList data={this.state.photos} />} />
                 <Route path="/sunsets" element={<PhotoList data={this.state.sunsets} />} />
                 <Route path="/waterfalls" element={<PhotoList data={this.state.waterfalls} /> }/>
                 <Route path="/rainbows" element={<PhotoList data={this.state.rainbows} />}/>
+                <Route path="*" element={<Error404 />} />
             </Routes>       
-        </BrowserRouter>
+        
         
         {/* {
           (this.state.loading) ? 
             <p>Loading...</p>
           : <PhotoList data={this.state.photos} /> 
         } */}
+        </BrowserRouter>
       </div>
+      
     );
+    
   }
 }
 

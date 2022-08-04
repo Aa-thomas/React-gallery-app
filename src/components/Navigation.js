@@ -1,15 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-
-const Navigation = () => {
+const Navigation = () => (                  
     <nav className="main-nav">
         <ul>
-            <li><NavLink to="/sunsets"></NavLink></li>
-            <li><NavLink to="/waterfalls"></NavLink></li>
-            <li><NavLink to="/rainbows"></NavLink></li>
+            <li><Link to="/sunsets">Sunsets</Link></li>
+            <li><Link to="/waterfalls">Waterfalls</Link></li>
+            <li><Link to="/rainbows">Rainbows</Link></li>
         </ul>
     </nav>
-};
+);
 
 export default Navigation;
