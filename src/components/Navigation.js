@@ -1,16 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = () => (
+
+const Navigation = () => {
     <nav className="main-nav">
         <ul>
-            <li><a href='#'>Cats</a></li>
-            <li><a href='#'>Dogs</a></li>
-            <li><a href='#'>Computers</a></li>
+            <li><NavLink to="/sunsets"></NavLink></li>
+            <li><NavLink to="/waterfalls"></NavLink></li>
+            <li><NavLink to="/rainbows"></NavLink></li>
         </ul>
     </nav>
-);
+};
 
 export default Navigation;
-
-
-
