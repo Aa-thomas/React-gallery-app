@@ -15,7 +15,7 @@ class App extends React.Component {
     sunsets: [],
     waterfalls: [],
     rainbows: [],
-    loading: true
+    loading: true,
   };
   
   componentDidMount() {
@@ -34,24 +34,27 @@ class App extends React.Component {
           photos: response.data.photos.photo,
           loading: false
         });
-        if (query === 'sunsets') {
-          this.setState({
-            sunsets: response.data.photos.photo,
-            loading: false
-          })} else if (query === 'rainbows') {
-            this.setState({
-              rainbows: response.data.photos.photo,
-              loading: false
-            })} else if (query === 'waterfalls') {
-              this.setState({
-                waterfalls: response.data.photos.photo,
-                loading: false
-              });
-            }
+      if (query === 'sunsets') {
+        this.setState({
+          sunsets: response.data.photos.photo,
+          loading: false
+        })};
+      if (query === 'rainbows') {
+        this.setState({
+          rainbows: response.data.photos.photo,
+          loading: false
+        })};
+      if (query === 'waterfalls') {
+        this.setState({
+          waterfalls: response.data.photos.photo,
+          loading: false
+        })};
+        
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error)
       });
+    
   }
 
   render() {
@@ -62,28 +65,20 @@ class App extends React.Component {
       <div>
       <BrowserRouter>
         <h1>React Gallery</h1>
-
         <SearchForm onSearch={this.performSearch} />
-        
-        
-        
-        
         <Navigation />        
-
-            <Routes>                
-                <Route exact path="/" element={<PhotoList data={this.state.photos} />} />
-                <Route path="/sunsets" element={<PhotoList data={this.state.sunsets} />} />
-                <Route path="/waterfalls" element={<PhotoList data={this.state.waterfalls} /> }/>
-                <Route path="/rainbows" element={<PhotoList data={this.state.rainbows} />}/>
-                <Route path="*" element={<Error404 />} />
-            </Routes>       
-        
-        
-        {/* {
+        {
           (this.state.loading) ? 
             <p>Loading...</p>
-          : <PhotoList data={this.state.photos} /> 
-        } */}
+          : <Routes>                
+              <Route exact path="/" element={<PhotoList data={this.state.photos} />} />
+              <Route path="/sunsets" element={<PhotoList data={this.state.sunsets} />} />
+              <Route path="/waterfalls" element={<PhotoList data={this.state.waterfalls} /> }/>
+              <Route path="/rainbows" element={<PhotoList data={this.state.rainbows} />}/>
+              <Route path="/:query" element={<PhotoList data={this.state.photos}  />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes> 
+        }
         </BrowserRouter>
       </div>
       
