@@ -14,7 +14,7 @@ const SearchForm = ({onSearch}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        navigate('/');
+        navigate(`/search/${searchText}`);
         onSearch(searchText);
         e.currentTarget.reset();
     }
@@ -26,8 +26,7 @@ const SearchForm = ({onSearch}) => {
                 name="search" 
                 placeholder="Search"
                 onChange={onSearchChange}
-                required
-                
+                required    
             />
             
             <button type="submit" className="search-button">
