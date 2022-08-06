@@ -1,12 +1,17 @@
 
-import { React, useState  } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { React, useEffect, useState  } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { usePrevious } from './usePrevious';
 
 const SearchForm = ({onSearch}) => {
     
     const [searchText, setSearchText] = useState('');
-    
     const navigate =  useNavigate();
+    const location = useLocation();
+
+
+    
+
 
     const onSearchChange = e => {
         setSearchText(e.target.value);
@@ -14,8 +19,10 @@ const SearchForm = ({onSearch}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        navigate(`/search/${searchText}`);
+        navigate(`/${searchText}`);
         onSearch(searchText);
+        window.history.pushState(null, null, `/${searchText}`);
+        console.log(window.history)
         e.currentTarget.reset();
     }
     
