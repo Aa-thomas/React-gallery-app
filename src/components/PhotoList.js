@@ -1,11 +1,21 @@
 import React from 'react';
 import NotFound from './NotFound';
 import Photo from './Photo';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const PhotoList = ({data}) => {
+const PhotoList = ({data, performSearch}) => {
     
     const results = data; 
-    let photos
+    let photos;
+
+    const { search } = useParams();
+
+  useEffect(() => {
+    if (search) {
+      performSearch(search);
+    }
+  }, [search]);
     
     if (results.length > 0) {
         photos = results.map( photo => 
@@ -16,10 +26,6 @@ const PhotoList = ({data}) => {
     )} else {
         photos = <NotFound />
     }
-    
-    
-    
-    
     
     return(
         <div className="photo-container">

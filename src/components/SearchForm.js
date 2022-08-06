@@ -21,8 +21,6 @@ const SearchForm = ({onSearch}) => {
         e.preventDefault();
         navigate(`/${searchText}`);
         onSearch(searchText);
-        window.history.pushState(null, null, `/${searchText}`);
-        console.log(window.history)
         e.currentTarget.reset();
     }
     

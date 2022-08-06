@@ -75,7 +75,7 @@ const App = () => {
               <Route path="/flowers" element={<PhotoList data={flowers} />} />
               <Route path="/waterfalls" element={<PhotoList data={waterfalls} /> }/>
               <Route path="/rainbows" element={<PhotoList data={rainbows} />}/>
-              <Route path="/:search" element={<PhotoList data={photos} />} />
+              <Route path="/:search" element={<PhotoList data={photos} performSearch={performSearch} />} />
               <Route path="*" element={<Error404 />} />
             </Routes> 
         }
