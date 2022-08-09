@@ -1,17 +1,12 @@
 
-import { React, useEffect, useState  } from 'react';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { usePrevious } from './usePrevious';
+import { React, useState  } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const SearchForm = ({onSearch}) => {
     
     const [searchText, setSearchText] = useState('');
     const navigate =  useNavigate();
-    const location = useLocation();
-
-
-    
-
 
     const onSearchChange = e => {
         setSearchText(e.target.value);

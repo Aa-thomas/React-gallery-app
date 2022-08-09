@@ -71,11 +71,11 @@ const App = () => {
           (loading) ? 
             <p>Loading...</p>
           : <Routes>                
-              <Route exact path="/" element={<PhotoList data={photos} />} />
+              <Route exact path="/" element={<PhotoList data={photos} performSearch={performSearch} />} />
               <Route path="/flowers" element={<PhotoList data={flowers} />} />
               <Route path="/waterfalls" element={<PhotoList data={waterfalls} /> }/>
               <Route path="/rainbows" element={<PhotoList data={rainbows} />}/>
-              <Route path="/:search" element={<PhotoList data={photos} performSearch={performSearch} />} />
+              <Route path="/:search" exact element={<PhotoList data={photos} performSearch={performSearch} />} />
               <Route path="*" element={<Error404 />} />
             </Routes> 
         }
