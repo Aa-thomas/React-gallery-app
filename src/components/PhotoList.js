@@ -11,11 +11,11 @@ const PhotoList = ({data, performSearch}) => {
 
     const { search } = useParams();
 
-  useEffect(() => {
-    if (search) {
-      performSearch(search);
-    }
-  }, [search]);
+    useEffect(() => {
+        if (search) {
+            performSearch(search);
+        }
+    }, [search]);
     
     if (results.length > 0) {
         photos = results.map( photo => 
